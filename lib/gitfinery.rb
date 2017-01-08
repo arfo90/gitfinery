@@ -3,6 +3,6 @@ require 'rubygems'
 require 'bundler/setup'
 Bundler.require(:default)
 
-module Pick
+module Gitfinery
  ## autoload classes here
 end
