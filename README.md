@@ -1,10 +1,11 @@
-Gitfinery
+# Gitfinery
 
-# CORE
+### CORE
  - git driver
  - API provider
  - indexer?!
-# Service
+ 
+### Service
  - Change frequency list
  - Auther list 
  - Auther list per target
