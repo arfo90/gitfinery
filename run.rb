@@ -9,9 +9,9 @@ g = Git.open(working_dir, :log => Logger.new(STDOUT))
 # g.log.each {|l| p l.author}
 
 # a = system ('git log')
-a = %x(git log)
+a = %x(git --git-dir ./resources/.git log).split('commit')
 
-p a
+a.each {|commit| p commit}
 
 
 # Refrence
