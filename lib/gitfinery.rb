@@ -4,5 +4,9 @@ require 'bundler/setup'
 Bundler.require(:default)
 
 module Gitfinery
+
+  module Driver
+    autoload :GitDriver, 'gitfinery/driver/git_driver.rb'
+  end
  ## autoload classes here
 end
