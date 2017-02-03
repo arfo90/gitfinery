@@ -21,12 +21,18 @@ class TestLinuxFindDriver < TestBase
   def test_call_find_retruns_all_files_in_resource_folder
     files = Gitfinery::Driver::LinuxFindDriver.new.find(@resource_dir)
 
-    assert_equal(4, files.count, 'The number of files returned is not match with actual one')
+    assert_equal(4, files.count, 'The number of files returned is not match with actual one (method: find_files_in)')
   end
 
   def test_call_find_accepts_filters
     files = Gitfinery::Driver::LinuxFindDriver.new.find(@resource_dir, '-type f')
 
-    assert_equal(3, files.count, 'The number of files returned is not match with actual one')
+    assert_equal(3, files.count, 'The number of files returned is not match with actual one (method: find_files_in)')
+  end
+
+  def test_call_find_files_method
+    files = Gitfinery::Driver::LinuxFindDriver.new.find_files_in(@resource_dir)
+
+    assert_equal(3, files.count, 'The number of files returned is not match with actual one (method: find_files_in)')
   end
 end
