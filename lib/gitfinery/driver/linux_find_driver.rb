@@ -1,8 +1,8 @@
 module Gitfinery
   module Driver
     class LinuxFindDriver
-      def find dir = '.'
-        return Hash[ %x(find #{dir})
+      def find dir = '.', filters = ''
+        return Hash[ %x(find #{dir} #{filters})
           .split("\n")
           .map { |l| l.chomp.split(' ',2) } ]
       end
