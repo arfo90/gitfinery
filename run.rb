@@ -16,8 +16,10 @@ a.each do |commit|
 end
 
 dir = '.'
-b = %x(find #{dir} -type f | xargs wc -l | sort | tail).split("\n")
-b = Hash[b.map { |l| l.chomp.split(' ',2) }]
+b = Hash[ %x(find #{dir} -type f | xargs wc -l | sort | tail)
+  .split("\n")
+  .map { |l| l.chomp.split(' ',2) } ]
+# b = Hash[b.map { |l| l.chomp.split(' ',2) }]
 b.each do |files|
   #  puts files
    # puts ' '
