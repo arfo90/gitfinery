@@ -11,8 +11,20 @@ g = Git.open(working_dir, :log => Logger.new(STDOUT))
 # a = system ('git log')
 a = %x(git --git-dir ./resources/.git log).split('commit')
 
-a.each {|commit| p commit}
+a.each do |commit|
+  # commit.split[/Author:(.*?)Date/, 1]
+end
 
+dir = '.'
+b = %x(find #{dir} -type f | xargs wc -l | sort | tail).split("\n")
+b = Hash[b.map { |l| l.chomp.split(' ',2) }]
+b.each do |files|
+  #  puts files
+   # puts ' '
+  # commit.split[/Author:(.*?)Date/, 1]
+end
+
+puts b
 
 # Refrence
 ## Biggest files:
@@ -22,3 +34,4 @@ a.each {|commit| p commit}
 ## Most changed
 ##  $ git log --pretty=format: --name-only -- src | sort | uniq -c | sort -rg | head
 ##  $ git log --pretty=format: --name-only --after="1 year ago"  -- src | sort | uniq -c | sort -rg | head
+# find -name '*.rb' ! -name 'run*'
