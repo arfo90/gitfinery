@@ -41,4 +41,13 @@ class TestLinuxFindDriver < TestBase
 
     assert_equal(3, files.count, 'The number of files returned is not match with actual one (method: find_files_in)')
   end
+
+  def test_call_list_based_on_size
+    sieze_list = Gitfinery::Driver::LinuxFindDriver.new(@resource_dir).list_based_on_size
+
+    expected_result = {"0"=>"#{Dir.pwd}/test/driver/resource/sample1.file", 
+    "12"=>"#{Dir.pwd}/test/driver/resource/sample2.file", "14"=>"#{Dir.pwd}/test/driver/resource/sample3.file", "26"=>"total"}
+
+    assert_equal(expected_result, sieze_list, 'Files Size list is not working! (method: list_based_on_size)')
+  end
 end
