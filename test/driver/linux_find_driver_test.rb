@@ -12,6 +12,12 @@ class TestLinuxFindDriver < TestBase
     end
   end
 
+  def test_class_constructor_accepts_dir
+    assert_nothing_raised "linux find driver should accept dir as constructor param!" do
+      Gitfinery::Driver::LinuxFindDriver.new @resource_dir
+    end
+  end
+
   def test_call_find_method
     assert_nothing_raised "Cannot call method find!" do
       Gitfinery::Driver::LinuxFindDriver.new.find

@@ -1,13 +1,19 @@
 module Gitfinery
   module Driver
     class LinuxFindDriver
-      def find dir = '.', filters = ''
+      attr_accessor :dir
+
+      def initialize dir = '.'
+        @dir = dir
+      end
+
+      def find dir = @dir , filters = ''
         return Hash[ %x(find #{dir} #{filters})
           .split("\n")
           .map { |l| l.chomp.split(' ',2) } ]
       end
 
-      def find_files_in dir
+      def find_files_in dir = @dir
         find dir, '-type f'
       end
     end
