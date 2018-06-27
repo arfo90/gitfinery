@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem 'rake'
+gem 'git'
 
 group :test do
   gem 'rack-test', :require => 'rack/test'

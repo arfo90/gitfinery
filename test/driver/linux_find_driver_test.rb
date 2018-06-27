@@ -4,7 +4,6 @@ class TestLinuxFindDriver < TestBase
   def setup
     @resource_dir = "#{Dir.pwd}/test/driver/resource"
   end
-  
 
   def test_class_exisit
     assert_nothing_raised "linux find driver dosn't exists!" do
