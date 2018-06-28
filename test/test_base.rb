@@ -1,6 +1,11 @@
 require_relative '../lib/gitfinery'
+require 'simplecov'
 
 Bundler.require(:test)
+
+SimpleCov.start do
+  SimpleCov.minimum_coverage 90
+end
 
 class TestBase < Minitest::Test
   def teardown
