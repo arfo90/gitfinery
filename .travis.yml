@@ -1,5 +1,6 @@
 before_install:
   - rvm install 2.4.2
+  - rm -rf ./test/driver/git_mock
   - git clone https://github.com/arfo90/git_mock.git ./test/driver/git_mock
 install:
   - bundle install
