@@ -14,14 +14,10 @@ module Gitfinery
         files = %x(git --git-dir=#{@dir}/.git/ log --pretty=format: --name-only | sort | uniq -c | sort -rg | head -10
         ).split("\n")
 
-        targets = []
-        list = []
-
-        files.each do |f|
+        files.map { |f|
           target = f.split(" ")
-          targets << { name: target[1], total_change: target[0] } unless target[1].nil?
-        end
-        targets
+          { name: target[1], total_change: target[0] } unless target[1].nil?
+        }.compact
       end
     end
   end
