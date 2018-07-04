@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/arfo90/gitfinery.svg?branch=master)](https://travis-ci.org/arfo90/gitfinery)
 # Gitfinery
 
 ### CORE
