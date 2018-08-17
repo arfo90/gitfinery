@@ -17,12 +17,16 @@ class TestGit < TestBase
   end
 
   def test_return_total_number_of_commits
-    assert_equal(4, @driver.commits_totalize, "Wrong number of commits is returns")
+    assert_equal(4, @driver.count_commits, "Wrong number of commits is returns")
   end
 
   def test_return_commits_per_author
     authors = {"Amireza Fatemi" => 4}
     assert_equal(authors, @driver.authors, "Wrong author list returned")
+  end
+
+  def test_total_file_commited
+    assert_equal(2, @driver.count_files, "Wrong count files")
   end
 end
 
