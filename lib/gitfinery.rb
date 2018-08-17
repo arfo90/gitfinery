@@ -4,6 +4,7 @@ require 'bundler/setup'
 Bundler.require(:default)
 
 module Gitfinery
+  autoload :Analyzer, 'gitfinery/analyzer.rb'
 
   module Driver
     autoload :Git, 'gitfinery/driver/git.rb'
