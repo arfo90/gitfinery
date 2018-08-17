@@ -1,6 +1,7 @@
 require 'git'
 require 'logger'
 
+=begin
 working_dir = './resources/'
 
 g = Git.open(working_dir, :log => Logger.new(STDOUT))
@@ -37,3 +38,13 @@ puts b
 ##  $ git log --pretty=format: --name-only -- src | sort | uniq -c | sort -rg | head
 ##  $ git log --pretty=format: --name-only --after="1 year ago"  -- src | sort | uniq -c | sort -rg | head
 # find -name '*.rb' ! -name 'run*'
+=end
+
+g = Git.open('./', :log => Logger.new(STDOUT))
+
+#puts g.log.since('2 weeks ago')
+g.log.each do |l|
+  l.author.name
+end
+
+
