@@ -19,6 +19,11 @@ module Gitfinery
           { name: target[1], total_change: target[0] } unless target[1].nil?
         }.compact
       end
+
+      def commits_totalize
+        %x(git --git-dir=#{@dir}/.git/  rev-list --all --count).to_i
+      end
+
     end
   end
 end
